@@ -57,7 +57,7 @@ class Heapsort {
 
     private static void removeMax(double[] A, int index)
     {
-        swap(A, index, 1);
+        swap(A, index-1, 1);
         index--;
         heapify(A, 1, index);
     }
