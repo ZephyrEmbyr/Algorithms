@@ -16,7 +16,7 @@ class Heapsort {
     private static double[] makeRandom(int n)
     {
         double[] toBeSorted = new double[n+1];
-        for(int k = 0; k < n+1; k++)
+        for(int k = 0; k < toBeSorted.length; k++)
             toBeSorted[k] = Math.random() * n+1;
         return toBeSorted;
     }
@@ -45,9 +45,9 @@ class Heapsort {
         int max = 2*k;
         if(index > 0)
         {
-            if(2*k > index)
+            if(2*k >= index)
                 removeMax(A, index);
-            if(2*k+1<=index)
+            if(2*k+1<index)
                 max = Math.max(2*k,2*k+1);
             swap(A, index, max);
             heapify(A, max, index);
