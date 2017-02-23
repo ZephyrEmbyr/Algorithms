@@ -29,35 +29,37 @@ class heapsort {
         }    
 	}
 
-    private static void buildHeap(double[] A) //Turns our
+    private static void buildHeap(double[] A) //Turns our random generated array into a heap
     {
         for(int k = A.length/2; k >0; k--)
         {
-            heapify(A, k, A.length);
+            heapify(A, k, A.length); //call heapify on all elements from index/2 all the way to top element to ensure heap property.
         }
     }
 
-    private static void heapify(double[] A, int k, int index)
+    private static void heapify(double[] A, int k, int index) //heapify checks left and right child.
+    //essentially swaps our newest value down the heap until we've re-satisfied the heap property.
     {
-        int lchild = 2*k;
+        int lchild = 2*k; //indices of left and right child of the current index k
         int rchild = 2*k+1;
         int max;
-        if((lchild < index) && (A[lchild]>A[k]))
+        if((lchild < index) && (A[lchild]>A[k])) //make sure that left child actually exists, otherwise we should get out of heapify
         {
         	max = lchild;
         } else {
         	max = k;
         }
-        if(rchild < index && A[rchild]>A[max])
+        if(rchild < index && A[rchild]>A[max]) //check if right child exists, compare to the current max value's index
            	max = rchild;
-        if(max != k)
+        if(max != k) //perform swaps and recursive calls if we aren't done and we need to move k down the heap
         {
         	swap(A,max,k);
         	heapify(A, max, index);
         }
     }
 
-    private static boolean isSorted(double[] A)
+    private static boolean isSorted(double[] A) //simple check to see if array is sorted
+    //strictly less than is enforced because we have a very small chance (read:0) of 2 random doubles being equal
     {
         for(int k = 1; k < A.length; k++)
         {
@@ -67,28 +69,27 @@ class heapsort {
         return true;
     }
 
-    private static void swap(double[] A, int p, int q)
+    private static void swap(double[] A, int p, int q) //simple swap function
     {
         double temp = A[p];
         A[p] = A[q];
         A[q] = temp;
     }
 
-    private static int tester(int n)
+    private static int tester(int n) //tester method on Heapsort
     {
-        double[] test = makeRandom(n);
-        long startTime = System.currentTimeMillis();
+        double[] test = makeRandom(n);  //create random array
+        long startTime = System.currentTimeMillis(); //stuff used for timing the sort
         sort(test);
         long endTime = System.currentTimeMillis();
         long timeElapsed = endTime-startTime;
-        if(!isSorted(test))
+        if(!isSorted(test)) //check if sorted, print error message if failed
         {
             System.out.println("Sort failed");
         	return 1;
         }
         System.out.println("Sorting of "+n+" integers completed successfully in " +timeElapsed+ " milliseconds");
+        //if sort is sucessful, print a success statement and time taken.
         return 0;
     }
 }
-
-//problem: sort n ints in range 0 to n^3 in O(n) time.
