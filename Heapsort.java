@@ -2,7 +2,7 @@ import java.time.*;
 
 class heapsort {
 
-    public static void main(String[] args)
+    public static void main(String[] args) //main method that calls our tester
     {
         tester(1000);
         tester(1000000);
@@ -11,15 +11,15 @@ class heapsort {
         tester(1000000000);
     }
 
-    private static double[] makeRandom(int n)
+    private static double[] makeRandom(int n) //makeRandom generates our random doubles array of size n+1, index 0 empty
     {
         double[] toBeSorted = new double[n+1];
-        for(int k = 1; k < toBeSorted.length; k++)
-            toBeSorted[k] = Math.random() * (n);
+        for(int k = 1; k < toBeSorted.length; k++)	
+            toBeSorted[k] = Math.random() * (n); //multiplied by n so our numbers are spaced apart some more
         return toBeSorted;
     }
 
-    private static void sort(double[] A)
+    private static void sort(double[] A) //our actual heapsort call, contains buildHeap, heapify, and removeMax.
     {
         buildHeap(A);
         for(int k = A.length; k > 1; k--)
@@ -29,7 +29,7 @@ class heapsort {
         }    
 	}
 
-    private static void buildHeap(double[] A)
+    private static void buildHeap(double[] A) //Turns our
     {
         for(int k = A.length/2; k >0; k--)
         {
