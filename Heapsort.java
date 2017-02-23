@@ -1,8 +1,6 @@
-package Sorts;
-
 import java.time.*;
 
-class Heapsort {
+class qeapsort {
 
     public static void main(String[] args)
     {

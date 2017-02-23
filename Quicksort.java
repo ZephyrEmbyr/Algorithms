@@ -1,16 +1,14 @@
-package Sorts;
-
 import java.time.*;
 
-public class Quicksort {
+public class quicksort {
 
     public static void main(String[] args)
     {
         tester(1000);
         tester(1000000);
         tester(10000000);
-        tester(100000000);
-        tester(1000000000);
+        //tester(100000000);
+        //tester(1000000000);
     }
 
     private static double[] makeRandom(int n)
