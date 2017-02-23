@@ -89,7 +89,7 @@ class ChenGentle_heapsort {
         	return 1;
         }
         System.out.println("Sorting of "+n+" integers completed successfully in " +timeElapsed+ " milliseconds");
-        //if sort is sucessful, print a success statement and time taken.
+        //if sort is successful, print a success statement and time taken.
         return 0;
     }
 }
